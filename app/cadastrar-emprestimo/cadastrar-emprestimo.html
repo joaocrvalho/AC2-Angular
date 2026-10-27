@@ -1,0 +1,10 @@
+<h2>Cadastrar emprestimo</h2>
+
+<input type="text" placeholder="Nome do livro" [(ngModel)]="tituloLivro">
+<input type="text" placeholder="Nome da pessoa" [(ngModel)]="nomePessoa">
+<input type="date" placeholder="Data prevista" [(ngModel)]="dataPrevista">
+<a routerLink="/listar-emprestimos">
+    <button (click)="add()">Cadastrar emprestimo</button>
+</a>
+
+<a routerLink="/listar-emprestimos"><button>Lista</button></a>

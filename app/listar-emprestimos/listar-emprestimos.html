@@ -1,0 +1,35 @@
+<h2>Lista de emprestimo: </h2>
+<ul>
+    @for (emprestimo of emprestimos; track $index) {
+        <li 
+        [class] = "{'devolvido': emprestimo.devolucao, 'nao-devolvido': !emprestimo.devolucao}">
+            <a>
+                {{emprestimo.nomePessoa}} - {{emprestimo.tituloLivro}} - {{emprestimo.dataPrevista}}
+            </a>
+
+            <button (click)="remover()">Remover</button>
+            <button (click)="emprestimo.devolucao = !emprestimo.devolucao" [disabled] = "emprestimo.devolucao" .devolvido>
+                {{emprestimo.devolucao ? 'Devolvido' : 'Devolver'}}
+            </button>
+        </li>
+    } @empty { <p>Nenhum emprestimo cadastrado</p> }
+</ul>
+
+
+<span>
+    Total:
+{{emprestimos.length}}
+</span>
+
+ <span>
+    Em aberto:
+    {{ emprestimos.filter(e => !e.devolucao).length }}
+  </span>
+
+  <span>
+    Devolvidos:
+    {{ emprestimos.filter(e => e.devolucao).length }}
+  </span>
+
+
+<a routerLink=""><button>Voltar</button></a>    
